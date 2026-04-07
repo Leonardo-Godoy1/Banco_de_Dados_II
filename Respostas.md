@@ -2,3 +2,4 @@
 select * from aluno 
 
 <h2> Questão 2 </h2>
+select nome, curso from aluno
