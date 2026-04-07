@@ -11,6 +11,7 @@ SELECT * FROM aluno WHERE curso = 'Computacao'
 SELECT * FROM aluno WHERE cidade = 'Maringa'
 
 <h2> Questão 5 </h2>
+SELECT * FROM aluno ORDER BY nome
 
 <h2> Questão 6 </h2>
 
