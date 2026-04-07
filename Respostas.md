@@ -42,3 +42,18 @@ SELECT MIN(nota) FROM matricula
 
 <h2> Questão 15 </h2>
 SELECT SUM(carga_horaria) FROM disciplina
+
+<h2> Questão 16 </h2>
+SELECT curso, COUNT(*) FROM aluno GROUP BY(curso)
+
+<h2> Questão 17 </h2>
+SELECT cidade, COUNT(*) FROM aluno GROUP BY(cidade)
+
+<h2> Questão 18 </h2>
+SELECT situacao, AVG(nota) FROM matricula GROUP BY(situacao)
+
+<h2> Questão 19 </h2>
+SELECT semestre, COUNT(*) FROM matricula GROUP BY(semestre)
+
+<h2> Questão 20 </h2>
+SELECT curso FROM aluno group by(CURSO) having COUNT(*) > 1
