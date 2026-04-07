@@ -20,7 +20,10 @@ SELECT * FROM aluno ORDER BY ano_ingresso
 SELECT * FROM aluno WHERE ano_ingresso >= 2022
 
 <h2> Questão 8 </h2>
+SELET * FROM aluno WHERE nome LIKE 'A%'
 
 <h2> Questão 9 </h2>
+SELECT * FROM aluno WHERE curso = 'Computacao' OR curso = 'Engenharia'
 
 <h2> Questão 10 </h2>
+SELECT * FROM disciplina WHERE carga_horaria >= 60 AND carga_horaria <= 80
