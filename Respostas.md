@@ -14,6 +14,7 @@ SELECT * FROM aluno WHERE cidade = 'Maringa'
 SELECT * FROM aluno ORDER BY nome
 
 <h2> Questão 6 </h2>
+SELECT * FROM aluno ORDER BY ano_ingresso
 
 <h2> Questão 7 </h2>
 
