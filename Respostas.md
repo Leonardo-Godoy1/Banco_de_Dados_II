@@ -17,6 +17,7 @@ SELECT * FROM aluno ORDER BY nome
 SELECT * FROM aluno ORDER BY ano_ingresso
 
 <h2> Questão 7 </h2>
+SELECT * FROM aluno WHERE ano_ingresso >= 2022
 
 <h2> Questão 8 </h2>
 
