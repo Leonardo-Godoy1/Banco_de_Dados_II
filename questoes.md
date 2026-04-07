@@ -1,5 +1,3 @@
-# Lista 01 -  grupos de 03
-
 ## Questão 1
 
 Liste todos os alunos cadastrados.
