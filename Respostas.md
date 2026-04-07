@@ -1,15 +1,14 @@
 <h2> Questão 1 </h2>
-select * from aluno 
+SELECT * FROM aluno 
 
 <h2> Questão 2 </h2>
-select nome, curso from aluno
-
+SELECT nome, curso FROM aluno
 
 <h2> Questão 3 </h2>
-select * from aluno where curso = 'Computacao'
-
+SELECT * FROM aluno WHERE curso = 'Computacao'
 
 <h2> Questão 4 </h2>
+SELECT * FROM aluno WHERE cidade = 'Maringa'
 
 <h2> Questão 5 </h2>
 
