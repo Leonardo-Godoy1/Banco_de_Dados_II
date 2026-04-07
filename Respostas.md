@@ -56,4 +56,4 @@ SELECT situacao, AVG(nota) FROM matricula GROUP BY(situacao)
 SELECT semestre, COUNT(*) FROM matricula GROUP BY(semestre)
 
 <h2> Questão 20 </h2>
-SELECT curso FROM aluno GROUP BY(CURSO) HVING COUNT(*) > 1
+SELECT curso FROM aluno GROUP BY(CURSO) HAVING COUNT(*) > 1
