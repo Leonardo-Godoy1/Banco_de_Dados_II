@@ -56,3 +56,23 @@ Mostre a menor nota registrada.
 ## Questão 15
 
 Calcule a soma das cargas horárias de todas as disciplinas.
+
+## Questão 16
+
+Mostre a quantidade de alunos por curso.
+
+## Questão 17
+
+Mostre a quantidade de alunos por cidade.
+
+## Questão 18
+
+Mostre a média das notas por situação da matrícula.
+
+## Questão 19
+
+Mostre quantas matrículas existem por semestre.
+
+## Questão 20
+
+Mostre os cursos que possuem mais de 1 aluno cadastrado.
