@@ -37,3 +37,22 @@ Liste os alunos dos cursos Computacao ou Engenharia.
 ## Questão 10
 
 Liste as disciplinas com carga horária entre 60 e 80 horas.
+
+## Questão 11
+Conte quantos alunos existem cadastrados.
+
+## Questão 12
+
+Calcule a média das notas da tabela matricula.
+
+## Questão 13
+
+Mostre a maior nota registrada.
+
+## Questão 14
+
+Mostre a menor nota registrada.
+
+## Questão 15
+
+Calcule a soma das cargas horárias de todas as disciplinas.
