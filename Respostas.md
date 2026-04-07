@@ -27,3 +27,18 @@ SELECT * FROM aluno WHERE curso = 'Computacao' OR curso = 'Engenharia'
 
 <h2> Questão 10 </h2>
 SELECT * FROM disciplina WHERE carga_horaria >= 60 AND carga_horaria <= 80
+
+<h2> Questão 11 </h2>
+SELECT COUNT(id) FROM aluno 
+
+<h2> Questão 12 </h2>
+SELECT AVG(nota) FROM matricula
+
+<h2> Questão 13 </h2>
+SELECT MAX(nota) FROM matricula
+
+<h2> Questão 14 </h2>
+SELECT MIN(nota) FROM matricula
+
+<h2> Questão 15 </h2>
+SELECT SUM(carga_horaria) FROM disciplina
