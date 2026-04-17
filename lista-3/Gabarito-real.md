@@ -28,8 +28,8 @@ SELECT * FROM contas;
 R: Guardar as informações relevantes d uma conta bancária
 
 
-**Pergunta 2**  
-Quais são os saldos iniciais de cada titular antes da execução das transações?
+### **Pergunta 2**  
+### Quais são os saldos iniciais de cada titular antes da execução das transações?
 
 R: Ana -> 1000.00;
    Bruno -> 500.00;
@@ -60,8 +60,8 @@ Depois:
 SELECT * FROM contas;
 ```
 
-**Pergunta 3**  
-O que aconteceu com os saldos após o `COMMIT`?
+### **Pergunta 3**  
+### O que aconteceu com os saldos após o `COMMIT`?
 
 R: Os saldos foram atualizados para:
    Ana -> 900.00;
@@ -70,8 +70,8 @@ R: Os saldos foram atualizados para:
    Daniela -> 800.00.
 
 
-**Pergunta 4**  
-Por que as duas instruções `UPDATE` devem fazer parte da mesma transação?
+### **Pergunta 4**  
+### Por que as duas instruções `UPDATE` devem fazer parte da mesma transação?
 
 R: Neste caso se trata de uma transferência bancária, ou seja, deve tirar de uma e passar para outra. Desse modo atualizando
 duas contas distintas para respeitar de maneira correta a regra de negócio.
@@ -99,13 +99,13 @@ Depois:
 SELECT * FROM contas;
 ```
 
-**Pergunta 5**  
-Por que os valores não foram alterados ao final?
+### **Pergunta 5**  
+### Por que os valores não foram alterados ao final?
 
 R: Pois houve um "Rollback" e, desse modo, não foram salvas as respostas.
 
-**Pergunta 6**  
-Em quais situações reais o uso de `ROLLBACK` seria essencial?
+### **Pergunta 6**  
+### Em quais situações reais o uso de `ROLLBACK` seria essencial?
 
 R: Se realizou uma operação equivocada ou houve algum problema na hora da persistência dos dados.
 
@@ -130,13 +130,13 @@ Depois:
 SELECT * FROM contas WHERE id = 3;
 ```
 
-**Pergunta 7**  
-Por que a transação foi desfeita neste caso?
+### **Pergunta 7**  
+### Por que a transação foi desfeita neste caso?
 
 R: Pois desrespeitou a regra de negócio.
 
-**Pergunta 8**  
-Qual problema de integridade poderia ocorrer se essa transação fosse confirmada?
+### **Pergunta 8**  
+### Qual problema de integridade poderia ocorrer se essa transação fosse confirmada?
 
 R: A conta iria ter saldo negativo.
 
@@ -166,13 +166,13 @@ Depois:
 SELECT * FROM contas;
 ```
 
-**Pergunta 9**  
-Qual conta foi debitada e quais contas foram creditadas?
+### **Pergunta 9**  
+### Qual conta foi debitada e quais contas foram creditadas?
 
 R: A conta com id 4, pertencente à Daniela foi debitada, e as contas com ids 1 e 2 respectivamente pertencentes a Ana e ao Bruno foram c 
 
-**Pergunta 10**  
-Por que esse conjunto de operações também deve ser tratado como uma única transação?
+### **Pergunta 10**  
+### Por que esse conjunto de operações também deve ser tratado como uma única transação?
 
 R: Neste caso se trata de uma transferência bancária para duas contas, ou seja, deve tirar de uma e passar para as outras. Desse modo atualizando
 duas contas distintas para respeitar de maneira correta a regra de negócio.
@@ -202,13 +202,13 @@ Depois volte para a primeira sessão e execute:
 ROLLBACK;
 ```
 
-**Pergunta 11**  
-Qual era o objetivo de observar o valor da conta em outra sessão antes do `COMMIT`?
+### **Pergunta 11**  
+### Qual era o objetivo de observar o valor da conta em outra sessão antes do `COMMIT`?
 
 R: Verificar que ele não alterou já que ele ainda não realizou o "commit".
 
-**Pergunta 12**  
-Como esse teste se relaciona com o conceito de isolamento?
+### **Pergunta 12**  
+### Como esse teste se relaciona com o conceito de isolamento?
 
 R: Com o conceito de isolamento, os dados só são atualizados para verificação após o "commit", uma vez que,
 os dados alterados só podem ser vistos ou alterados por outras operações/sessões após a persistência.
