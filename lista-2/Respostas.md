@@ -11,6 +11,7 @@ SELECT nome, curso FROM aluno
 ## Questão 3 
 ```SQL
 SELECT * FROM aluno WHERE curso = 'Computacao'
+```
 
 ## Questão 4
 ```SQL 
