@@ -36,15 +36,12 @@ Execute:
 
 ```sql
 START TRANSACTION;
-
 UPDATE contas
 SET saldo = saldo - 100
 WHERE id = 1;
-
 UPDATE contas
 SET saldo = saldo + 100
 WHERE id = 2;
-
 COMMIT;
 ```
 
@@ -68,15 +65,12 @@ Execute:
 
 ```sql
 START TRANSACTION;
-
 UPDATE contas
 SET saldo = saldo - 50
 WHERE id = 2;
-
 UPDATE contas
 SET saldo = saldo + 50
 WHERE id = 3;
-
 ROLLBACK;
 ```
 
@@ -100,13 +94,10 @@ Execute:
 
 ```sql
 START TRANSACTION;
-
 UPDATE contas
 SET saldo = saldo - 2000
 WHERE id = 3;
-
 SELECT * FROM contas WHERE id = 3;
-
 ROLLBACK;
 ```
 
@@ -130,19 +121,15 @@ Execute:
 
 ```sql
 START TRANSACTION;
-
 UPDATE contas
 SET saldo = saldo - 100
 WHERE id = 4;
-
 UPDATE contas
 SET saldo = saldo + 60
 WHERE id = 1;
-
 UPDATE contas
 SET saldo = saldo + 40
 WHERE id = 2;
-
 COMMIT;
 ```
 
@@ -166,7 +153,6 @@ Execute:
 
 ```sql
 START TRANSACTION;
-
 UPDATE contas
 SET saldo = saldo - 150
 WHERE id = 1;
@@ -200,9 +186,7 @@ Abra duas conexões.
 
 ```sql
 START TRANSACTION;
-
 SELECT * FROM contas WHERE id = 1 FOR UPDATE;
-
 UPDATE contas
 SET saldo = saldo - 200
 WHERE id = 1;
@@ -214,7 +198,6 @@ Não execute `COMMIT` ainda.
 
 ```sql
 START TRANSACTION;
-
 UPDATE contas
 SET saldo = saldo + 300
 WHERE id = 1;
@@ -250,7 +233,6 @@ Abra duas conexões.
 
 ```sql
 START TRANSACTION;
-
 UPDATE contas
 SET saldo = saldo - 50
 WHERE id = 1;
@@ -260,7 +242,6 @@ WHERE id = 1;
 
 ```sql
 START TRANSACTION;
-
 UPDATE contas
 SET saldo = saldo + 70
 WHERE id = 4;
@@ -303,18 +284,14 @@ Execute:
 
 ```sql
 START TRANSACTION;
-
 UPDATE contas
 SET saldo = saldo - 120
 WHERE id = 2;
-
 UPDATE contas
 SET saldo = saldo + 120
 WHERE id = 3;
-
 INSERT INTO movimentacoes (conta_origem, conta_destino, valor)
 VALUES (2, 3, 120.00);
-
 COMMIT;
 ```
 
@@ -339,15 +316,12 @@ Execute:
 
 ```sql
 START TRANSACTION;
-
 UPDATE contas
 SET saldo = saldo - 80
 WHERE id = 1;
-
 UPDATE contas
 SET saldo = saldo + 80
 WHERE id = 4;
-
 ROLLBACK;
 ```
 
