@@ -23,7 +23,7 @@ SELECT * FROM contas;
 ```
 
 **Pergunta 1**  
-Qual é o objetivo da tabela `contas` neste cenário prático?
+### Qual é o objetivo da tabela `contas` neste cenário prático?
 
 R: Guardar as informações relevantes d uma conta bancária
 
