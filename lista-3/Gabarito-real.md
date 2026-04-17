@@ -25,8 +25,17 @@ SELECT * FROM contas;
 **Pergunta 1**  
 Qual é o objetivo da tabela `contas` neste cenário prático?
 
+R: Guardar as informações relevantes d uma conta bancária
+
+
 **Pergunta 2**  
 Quais são os saldos iniciais de cada titular antes da execução das transações?
+
+R: Ana -> 1000.00;
+   Bruno -> 500.00;
+   Carlos -> 300.00;
+   Daniela -> 800.00.
+
 
 ---
 
@@ -54,8 +63,18 @@ SELECT * FROM contas;
 **Pergunta 3**  
 O que aconteceu com os saldos após o `COMMIT`?
 
+R: Os saldos foram atualizados para:
+   Ana -> 900.00;
+   Bruno -> 600.00;
+   Carlos -> 300.00;
+   Daniela -> 800.00.
+
+
 **Pergunta 4**  
 Por que as duas instruções `UPDATE` devem fazer parte da mesma transação?
+
+R: Neste caso se trata de uma transferência bancária, ou seja, deve tirar de uma e passar para outra. Desse modo atualizando
+duas contas distintas para respeitar de maneira correta a regra de negócio.
 
 ---
 
@@ -83,8 +102,12 @@ SELECT * FROM contas;
 **Pergunta 5**  
 Por que os valores não foram alterados ao final?
 
+R: Pois houve um "Rollback" e, desse modo, não foram salvas as respostas.
+
 **Pergunta 6**  
 Em quais situações reais o uso de `ROLLBACK` seria essencial?
+
+R: Se realizou uma operação equivocada ou houve algum problema na hora da persistência dos dados.
 
 ---
 
@@ -110,8 +133,12 @@ SELECT * FROM contas WHERE id = 3;
 **Pergunta 7**  
 Por que a transação foi desfeita neste caso?
 
+R: Pois desrespeitou a regra de negócio.
+
 **Pergunta 8**  
 Qual problema de integridade poderia ocorrer se essa transação fosse confirmada?
+
+R: A conta iria ter saldo negativo.
 
 ---
 
