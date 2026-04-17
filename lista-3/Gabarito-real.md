@@ -169,8 +169,13 @@ SELECT * FROM contas;
 **Pergunta 9**  
 Qual conta foi debitada e quais contas foram creditadas?
 
+R: A conta com id 4, pertencente à Daniela foi debitada, e as contas com ids 1 e 2 respectivamente pertencentes a Ana e ao Bruno foram c 
+
 **Pergunta 10**  
 Por que esse conjunto de operações também deve ser tratado como uma única transação?
+
+R: Neste caso se trata de uma transferência bancária para duas contas, ou seja, deve tirar de uma e passar para as outras. Desse modo atualizando
+duas contas distintas para respeitar de maneira correta a regra de negócio.
 
 ---
 
@@ -200,8 +205,13 @@ ROLLBACK;
 **Pergunta 11**  
 Qual era o objetivo de observar o valor da conta em outra sessão antes do `COMMIT`?
 
+R: Verificar que ele não alterou já que ele ainda não realizou o "commit".
+
 **Pergunta 12**  
 Como esse teste se relaciona com o conceito de isolamento?
+
+R: Com o conceito de isolamento, os dados só são atualizados para verificação após o "commit", uma vez que,
+os dados alterados só podem ser vistos ou alterados por outras operações/sessões após a persistência.
 
 ---
 
