@@ -251,14 +251,21 @@ COMMIT;
 
 Depois finalize a Sessão 2.
 
-**Pergunta 13**  
-O que aconteceu com a segunda transação?
+### **Pergunta 13**  
+### O que aconteceu com a segunda transação?
 
-**Pergunta 14**  
-Por que ela precisou esperar?
+R: Foi bloqueada até que a primeira transação tenha sido concluída ("commitada").
 
-**Pergunta 15**  
-Qual a função do `FOR UPDATE`?
+### **Pergunta 14**  
+### Por que ela precisou esperar?
+
+R: Pois ambas estavam operando sobre o mesmo registro, desse modo, a segunda teve que esperar a primeira concluir
+para que operasse em cima do valor mais atualizado.
+
+### **Pergunta 15**  
+### Qual a função do `FOR UPDATE`?
+
+R: Avisar qual registro a operação vai alterar, para que possa tratar nas outras sessões.
 
 ---
 
@@ -286,11 +293,15 @@ WHERE id = 4;
 
 Depois execute `COMMIT` em ambas.
 
-**Pergunta 16**  
-Por que nesse caso as transações tendem a não disputar o mesmo recurso?
+### **Pergunta 16**  
+### Por que nesse caso as transações tendem a não disputar o mesmo recurso?
 
-**Pergunta 17**  
-O que esse teste mostra sobre concorrência em linhas diferentes da tabela?
+R: Pois elas alteram registros distintos.
+
+### **Pergunta 17**  
+### O que esse teste mostra sobre concorrência em linhas diferentes da tabela?
+
+R: Mostra que não há problemas em alterar simultaneamente linhas distintas da tabela.
 
 ---
 
@@ -310,8 +321,10 @@ CREATE TABLE movimentacoes (
 );
 ```
 
-**Pergunta 18**  
-Qual é a importância de registrar movimentações além de atualizar os saldos?
+### **Pergunta 18**  
+### Qual é a importância de registrar movimentações além de atualizar os saldos?
+
+R: Com esse histórico, mantém um controle mais rigoroso das transações, desse modo, reforçando a segurança.
 
 ---
 
@@ -339,11 +352,15 @@ SELECT * FROM contas;
 SELECT * FROM movimentacoes;
 ```
 
-**Pergunta 19**  
-Por que o `INSERT` na tabela `movimentacoes` deve estar na mesma transação dos `UPDATE`s?
+### **Pergunta 19**  
+### Por que o `INSERT` na tabela `movimentacoes` deve estar na mesma transação dos `UPDATE`s?
 
-**Pergunta 20**  
-O que poderia acontecer se o histórico fosse gravado, mas os saldos não fossem atualizados, ou vice-versa?
+R: Porque o histórico faz parte da transação, uma vez que, registra umaoperação realizada.
+
+### **Pergunta 20**  
+### O que poderia acontecer se o histórico fosse gravado, mas os saldos não fossem atualizados, ou vice-versa?
+
+R: Aconteceria inconsistências dos dados.
 
 ---
 
@@ -369,11 +386,15 @@ SELECT * FROM contas;
 SELECT * FROM movimentacoes;
 ```
 
-**Pergunta 21**  
-O que o `ROLLBACK` garantiu nesse cenário?
+### **Pergunta 21**  
+### O que o `ROLLBACK` garantiu nesse cenário?
 
-**Pergunta 22**  
-Como esse teste demonstra a propriedade de atomicidade?
+R: Garantiu que não fossem registradas operações sem o histórico das mesmas.
+
+### **Pergunta 22**  
+### Como esse teste demonstra a propriedade de atomicidade?
+
+R: 
 
 ---
 
@@ -386,21 +407,29 @@ SELECT * FROM contas;
 SELECT * FROM movimentacoes;
 ```
 
-**Pergunta 23**  
-Como verificar se o banco permaneceu consistente após todas as operações realizadas?
+### **Pergunta 23**  
+### Como verificar se o banco permaneceu consistente após todas as operações realizadas?
 
-**Pergunta 24**  
-Por que a consistência do banco depende não apenas dos comandos SQL, mas também da forma como eles são agrupados em transações?
+R:
+
+### **Pergunta 24**  
+### Por que a consistência do banco depende não apenas dos comandos SQL, mas também da forma como eles são agrupados em transações?
+
+R:
 
 ---
 
 ## 7. Atividade dissertativa
 
 ### Questão 25
-Explique o que é uma transação em banco de dados.
+### Explique o que é uma transação em banco de dados.
+
+R:
 
 ### Questão 26
-Descreva a diferença entre `COMMIT` e `ROLLBACK`.
+### Descreva a diferença entre `COMMIT` e `ROLLBACK`.
+
+R:
 
 ### Questão 27
 Explique por que uma transferência bancária deve ser tratada como transação.
