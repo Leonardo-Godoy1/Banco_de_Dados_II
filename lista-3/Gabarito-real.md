@@ -394,7 +394,7 @@ R: Garantiu que não fossem registradas operações sem o histórico das mesmas.
 ### **Pergunta 22**  
 ### Como esse teste demonstra a propriedade de atomicidade?
 
-R: 
+R: A propriedade da atomicidade diz que uma transação não pode ser feita pela metade: ou é realizada corretamente até o fim, ou é descartada. Esse teste demonstra a propriedade ao não "commitar" uma transação feita de forma incompleta (por não atualizar a tabela de movimentações).
 
 ---
 
@@ -410,12 +410,12 @@ SELECT * FROM movimentacoes;
 ### **Pergunta 23**  
 ### Como verificar se o banco permaneceu consistente após todas as operações realizadas?
 
-R:
+R: É possível comparar as informações de transferências presentes no histórico com os saldos finais para verificar se os dados estão coesos.
 
 ### **Pergunta 24**  
 ### Por que a consistência do banco depende não apenas dos comandos SQL, mas também da forma como eles são agrupados em transações?
 
-R:
+R: Porque a forma como são agrupadas ajuda a garantir que as transações são completas e que estão sendo realizadas na ordem correta. 
 
 ---
 
