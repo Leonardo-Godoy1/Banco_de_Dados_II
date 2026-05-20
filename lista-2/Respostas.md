@@ -97,3 +97,101 @@ SELECT semestre, COUNT(*) FROM matricula GROUP BY(semestre)
 ```SQL 
 SELECT curso FROM aluno GROUP BY(CURSO) HAVING COUNT(*) > 1
 ```
+
+## Questão 21
+```SQL 
+SELECT aluno.nome, matricula.situacao
+FROM aluno
+INNER JOIN matricula
+    ON aluno.id = matricula.id;
+```
+
+## Questão 22
+```SQL 
+SELECT aluno.nome, disciplina.nome
+FROM aluno
+INNER JOIN matricula
+    ON aluno.id = matricula.aluno_id
+INNER JOIN disciplina
+    ON disciplina.id = matricula.disciplina_id;
+```
+
+## Questão 23
+```SQL
+SELECT aluno.nome, disciplina.nome, matricula.nota
+FROM aluno
+INNER JOIN matricula
+    ON aluno.id = matricula.aluno_id
+INNER JOIN disciplina
+    ON disciplina.id = matricula.disciplina_id;
+```
+
+## Questão 24
+```SQL
+SELECT DISTINCT aluno.nome, aluno.curso, aluno.cidade, aluno.ano_ingresso
+FROM aluno
+INNER JOIN matricula
+    ON aluno.id = matricula.aluno_id
+INNER JOIN disciplina
+    ON disciplina.id = matricula.disciplina_id
+WHERE disciplina.departamento = 'Computacao';
+```
+
+## Questão 25
+```SQL
+SELECT DISTINCT aluno.nome
+FROM aluno
+INNER JOIN matricula
+    ON aluno.id = matricula.aluno_id
+WHERE situacao = 'Reprovado';
+```
+
+## Questão 26
+```SQL
+SELECT aluno.nome, disciplina.nome
+FROM aluno
+INNER JOIN matricula
+    ON aluno.id = matricula.aluno_id
+INNER JOIN disciplina
+    ON disciplina.id = matricula.disciplina_id
+WHERE aluno.curso = 'Computacao';
+```
+
+## Questão 27
+```SQL
+SELECT aluno.nome, AVG(matricula.nota) AS media
+FROM aluno
+INNER JOIN matricula
+    ON aluno.id = matricula.aluno_id
+GROUP BY aluno.nome;
+```
+
+## Questão 28
+```SQL
+SELECT aluno.nome, COUNT(*) AS total_disciplinas
+FROM aluno
+INNER JOIN matricula
+    ON aluno.id = matricula.aluno_id
+INNER JOIN disciplina
+    ON disciplina.id = matricula.disciplina_id
+GROUP BY aluno.nome;
+```
+
+## Questão 29
+```SQL
+SELECT aluno.nome, aluno.curso, aluno.cidade, aluno.ano_ingresso
+FROM aluno
+INNER JOIN matricula
+    ON aluno.id = matricula.aluno_id
+GROUP BY aluno.nome
+HAVING AVG(matricula.nota) > 8;
+```
+
+## Questão 30
+```SQL
+SELECT disciplina.departamento, COUNT(*) AS total_matriculas
+FROM disciplina
+INNER JOIN matricula
+    ON disciplina.id = matricula.disciplina_id
+GROUP BY disciplina.departamento;
+```
