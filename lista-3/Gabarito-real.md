@@ -412,90 +412,196 @@ SELECT * FROM movimentacoes;
 
 R: É possível comparar as informações de transferências presentes no histórico com os saldos finais para verificar se os dados estão coesos.
 
-### **Pergunta 24**  
+# Exercícios sobre Transações e Propriedades ACID
+
+### Questão 24
 ### Por que a consistência do banco depende não apenas dos comandos SQL, mas também da forma como eles são agrupados em transações?
 
-R: Porque a forma como são agrupadas ajuda a garantir que as transações são completas e que estão sendo realizadas na ordem correta. 
+R: Porque a forma como são agrupadas ajuda a garantir que as transações são completas e que estão sendo realizadas na ordem correta.
 
 ---
-
-## 7. Atividade dissertativa
 
 ### Questão 25
 ### Explique o que é uma transação em banco de dados.
 
-R:
+R: Uma transação é uma unidade lógica de processamento de banco de dados que deve ser executada na íntegra ou cancelada totalmente.
+
+---
 
 ### Questão 26
-### Descreva a diferença entre `COMMIT` e `ROLLBACK`.
+### Descreva a diferença entre COMMIT e ROLLBACK.
 
-R:
+R: O COMMIT é a confirmação da transação, responsável por gravar as alterações feitas no disco. É utilizado quando a transação é bem sucedida. Por sua vez, o ROLLBACK é responsável por voltar os dados ao seu estado anterior ao da transação, cancelando-a. É utilizado quando a transação não é bem sucedida.
+
+---
 
 ### Questão 27
-Explique por que uma transferência bancária deve ser tratada como transação.
+### Explique por que uma transferência bancária deve ser tratada como transação.
+
+R: Uma transferência bancária deve ser tratada como transação pois ela não pode ser executada pela metade — ou é executada corretamente até o final ou é totalmente cancelada.
+
+---
 
 ### Questão 28
-O que pode acontecer se duas transações alterarem o mesmo dado ao mesmo tempo sem controle de concorrência?
+### O que pode acontecer se duas transações alterarem o mesmo dado ao mesmo tempo sem controle de concorrência?
+
+R: Pode acontecer de uma das transações utilizar um dado desatualizado (por ter sido alterado na outra transação) ou uma transação pode escrever por cima do resultado da outra, deixando-a inútil.
+
+---
 
 ### Questão 29
-Qual a relação entre transações e as propriedades ACID?
+### Qual a relação entre transações e as propriedades ACID?
+
+R: As propriedades ACID são utilizadas pelas transações a fim de manter a consistência dos dados e ajudar no controle de concorrência, tornando o banco mais seguro.
+
+---
 
 ### Questão 30
-Explique o significado da propriedade de atomicidade no contexto de uma operação bancária.
+### Explique o significado da propriedade de atomicidade no contexto de uma operação bancária.
+
+R: A propriedade da atomicidade diz que uma transação não pode ser executada pela metade, ou seja, ou ela é executada corretamente até o fim, ou é completamente revertida. No contexto de uma operação bancária, o significado dela é que uma operação (como uma transferência, por exemplo) só pode ser finalizada quando todos os passos forem executados corretamente. No caso de algum erro ou violação de regra de negócio, todo o procedimento é revertido, a fim de não causar prejuízos nas contas.
+
+---
 
 ### Questão 31
-Explique o que significa dizer que uma transação preserva a consistência do banco de dados.
+### Explique o que significa dizer que uma transação preserva a consistência do banco de dados.
+
+R: A transação não pode quebrar a consistência do banco de dados, ou seja, ela deve sair de um estado matematicamente válido para outro também válido.
+
+---
 
 ### Questão 32
-Descreva o papel do isolamento em ambientes com múltiplos usuários acessando o mesmo banco.
+### Descreva o papel do isolamento em ambientes com múltiplos usuários acessando o mesmo banco.
+
+R: O papel do isolamento é impedir que um usuário veja as alterações e dados parciais gerados por outro enquanto elas não forem confirmadas. Isso impede, por exemplo, que um usuário leia um valor incorreto e que será corrigido por outro usuário por meio de um ROLLBACK.
+
+---
 
 ### Questão 33
-Explique a importância da durabilidade após a execução de um `COMMIT`.
+### Explique a importância da durabilidade após a execução de um COMMIT.
+
+R: A durabilidade é responsável por garantir que os dados alterados na transação permanecerão no banco mesmo em caso de falha energética ou catastrófica.
+
+---
 
 ### Questão 34
-O que é controle de concorrência e por que ele é necessário?
+### O que é controle de concorrência e por que ele é necessário?
+
+R: Controle de concorrência é o mecanismo do banco de dados que garante que múltiplos usuários possam acessar e modificar dados simultaneamente sem corromper as informações. É necessário para garantir o isolamento de transações concorrentes.
+
+---
 
 ### Questão 35
-Explique a função do lock em transações concorrentes.
+### Explique a função do lock em transações concorrentes.
+
+R: O lock é responsável por impedir uma transação de acessar um dado que está sendo alterado por outra, a fim de garantir que ela utilizará a versão mais atualizada do dado.
+
+---
 
 ### Questão 36
-Descreva um exemplo prático em que o `FOR UPDATE` seja necessário.
+### Descreva um exemplo prático em que o FOR UPDATE seja necessário.
+
+R: Um usuário numa sessão do banco deseja informar aos usuários em outras sessões que ele vai alterar os dados da conta de id = 1.
+
+---
 
 ### Questão 37
-O que é uma atualização perdida (*lost update*)?
+### O que é uma atualização perdida (lost update)?
+
+R: Atualização perdida é um problema de concorrência em que duas ou mais transações acessam o mesmo dado simultaneamente e fazem escritas nele. O resultado da última transação é o que será persistido no banco, enquanto as outras serão sobrescritas e perdidas.
+
+---
 
 ### Questão 38
-Explique por que nem toda leitura concorrente gera problema, mas algumas atualizações simultâneas sim.
+### Explique por que nem toda leitura concorrente gera problema, mas algumas atualizações simultâneas sim.
+
+R: Leituras de dados diferentes não causam problemas no banco, somente leituras do mesmo dado podem causar inconsistências.
+
+---
 
 ### Questão 39
-Qual é a importância de registrar operações em uma tabela de histórico dentro da mesma transação?
+### Qual é a importância de registrar operações em uma tabela de histórico dentro da mesma transação?
+
+R: É importante pois ajuda a manter a integridade e a segurança dos dados, além de auxiliar na recuperação em caso de erro.
+
+---
 
 ### Questão 40
-Em um sistema acadêmico, cite um exemplo de operação que deveria ser tratada como transação.
+### Em um sistema acadêmico, cite um exemplo de operação que deveria ser tratada como transação.
+
+R: Lançar as notas de um aluno no sistema.
+
+---
 
 ### Questão 41
-Em um sistema de estoque, cite um exemplo de falha que poderia justificar o uso de `ROLLBACK`.
+### Em um sistema de estoque, cite um exemplo de falha que poderia justificar o uso de ROLLBACK.
+
+R: A remoção de um item numa quantidade maior do que a que estava disponível no estoque.
+
+---
 
 ### Questão 42
-Como o processamento de transações contribui para a confiabilidade de sistemas de informação?
+### Como o processamento de transações contribui para a confiabilidade de sistemas de informação?
+
+R: O processamento de transações garante maior consistência dos dados e permite a recuperação em casos de erro, auxiliando a manter os dados do sistema íntegros.
 
 ---
 
 ### Questão 43
-Considerando todos os experimentos realizados, explique de forma integrada como atomicidade, consistência, isolamento e durabilidade atuam em conjunto no processamento de transações.
+### Considerando todos os experimentos realizados, explique de forma integrada como atomicidade, consistência, isolamento e durabilidade atuam em conjunto no processamento de transações.
+
+R: As quatro propriedades atuam em conjunto a fim de garantir a integridade das transações: a atomicidade garante que a transação será realizada até o fim ou totalmente revertida, sem resultados parciais que podem sujar o banco; a consistência garante que o banco nunca estará num estado matematicamente inválido; o isolamento garante que uma transação não utilizará dados parciais gerados em outra; a durabilidade garante que os dados serão persistidos no banco sem riscos de serem perdidos.
 
 ---
 
 ## Desafio
 
 ### Questão 44
-Adapte o exemplo bancário para um sistema de matrícula em disciplinas, em que uma transação deva:
-
+### Adapte o exemplo bancário para um sistema de matrícula em disciplinas, em que uma transação deva:
 - verificar vaga disponível
 - reduzir a quantidade de vagas
 - registrar a matrícula do aluno
 
-Explique por que essas operações devem ocorrer na mesma transação.
+### Explique por que essas operações devem ocorrer na mesma transação.
+
+```SQL
+DROP TABLE IF EXISTS disciplina;
+DROP TABLE IF EXISTS matricula;
+
+CREATE TABLE disciplina (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    vagas_disponiveis INT
+);
+
+CREATE TABLE matricula (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    aluno VARCHAR(100),
+    id_disciplina INT
+);
+
+INSERT INTO disciplina (id, nome, vagas_disponiveis) VALUES
+(1, 'Banco de Dados II', 20),
+(2, 'Projeto e Análise de Algoritmos', 15),
+(3, 'Sistemas Operacionais', 10);
+
+START TRANSACTION;
+
+UPDATE disciplina
+SET vagas_disponiveis = vagas_disponiveis - 1
+WHERE id = 1;
+
+INSERT INTO matricula (id, aluno, id_disciplina) VALUES
+(1, 'Caio César', 1);
+
+COMMIT;
+```
+
+R: Essas operações devem ocorrer na mesma transação porque fazem parte do mesmo processo: a matrícula só pode ser realizada se houver vagas disponíveis e a quantidade de vagas na disciplina deve ser decrementada. Caso contrário, o banco ficaria com dados inconsistentes ou parciais.
+
+---
 
 ### Questão 45
-Adapte o exemplo para um sistema de estoque e vendas, explicando quais operações devem ser agrupadas para evitar inconsistências.
+### Adapte o exemplo para um sistema de estoque e vendas, explicando quais operações devem ser agrupadas para evitar inconsistências.
+
+R: As operações de checagem de itens disponíveis, remoção de itens do estoque e registro da venda devem ser agrupadas juntas a fim de evitar inconsistências.
